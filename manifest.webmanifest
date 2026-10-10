@@ -1,1 +1,1 @@
-{"name":"Gym Premium V5.1","short_name":"Gym Premium","start_url":"./","display":"standalone","background_color":"#f5f7f6","theme_color":"#f5f7f6","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{"name":"My Gym Plan Premium V5.1","short_name":"Gym Plan","start_url":"./","display":"standalone","background_color":"#0b100e","theme_color":"#17b26a","icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icon-512.png","sizes":"512x512","type":"image/png"}]}
