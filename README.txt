@@ -1,22 +1,27 @@
-MY GYM PLAN PREMIUM V5.1
+GYM PREMIUM V5.1 EXPORT FIX
 
-This version keeps every V5 feature and only improves numeric input.
+The existing export fails because URL.createObjectURL is unavailable in the affected browser/PWA environment.
 
-Preserved
-- Home, Train, Progress, Records and Profile tabs.
-- Supabase login and cloud sync.
-- Existing routines, history, body weights, PRs, achievements and settings.
-- Previous-set comparison, workout summary and premium rest timer.
+APPLY THE FIX
+1. Upload export-fix.js to the same GitHub repository folder as index.html.
+2. Open index.html for editing.
+3. Immediately before </body>, add:
+   <script src="export-fix.js?v=511"></script>
+4. Commit both changes.
+5. Open the deployed app once with ?v=511.
+6. If the Home Screen app stays cached, remove it and add it again from Safari.
 
-Improved
-- Workout weight fields request the decimal number keypad.
-- Workout rep fields request the integer number keypad.
-- Body-weight input requests the decimal number keypad.
-- Custom rest input and routine set-count input request the integer number keypad.
-- Existing values are selected when a numeric field receives focus, making replacement faster.
-- No database or data-model changes.
+TEST
+1. Open Profile.
+2. Tap Export.
+3. On iPhone, the Share Sheet should open.
+4. Choose Save to Files.
+5. Confirm a file named gym-plan-backup-YYYY-MM-DD.json exists.
 
-Install
-1. Replace index.html, manifest.webmanifest, sw.js, icon-192.png and icon-512.png in GitHub.
-2. Keep the existing Supabase project. Do not rerun setup.sql if sync already works.
-3. Open the deployed URL once with ?v=51. If the installed app remains cached, remove and add it again.
+The fix uses this fallback order:
+- Native iPhone Share Sheet and Save to Files
+- Data URL download for desktop browsers
+- Clipboard copy
+- Manual copy prompt
+
+The fix does not change routines, workouts, charts, login, Supabase sync, or the data model.
